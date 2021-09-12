@@ -1,5 +1,5 @@
 <template>
-  <div v-for="(item, index) in getOptions" :key="index" class="pledge-card">
+  <div v-for="(item, index) in content" :key="index" class="pledge-card">
     <h3>{{ item.title }}</h3>
     <a class="link-text pledge-card__link" :href="item.url">
       {{ item.linkText }}
@@ -34,7 +34,7 @@ export default {
     Button,
   },
   props: {
-    // content: Array,
+    content: Array,
     enableBtn: Boolean,
     modal: Boolean,
     url: String,
