@@ -1,0 +1,55 @@
+/**
+ * Config: Colors
+ * -----------------------------------------------------------------------------
+ * Universal variables that have common roles and usages throughout the theme.
+ *
+ */
+
+
+/**
+*   General
+*/
+$COLOR_PRIMARY: #3CB3AB;
+$COLOR_PRIMARY_HOVER: #147A73;
+$COLOR_WHITE: #FFFFFF;
+$COLOR_BLACK: #000000;
+$COLOR_BLACK_OFF: #2F2F2F;
+/**
+*   Surfaces
+*/
+$COLOR_BG: #FAFAFA;
+$COLOR_BG_CARD: $COLOR_WHITE;
+
+/**
+*   Typography
+*/
+$COLOR_HEADING: #000000;
+$COLOR_HEADING_DISABLED: #808080;
+$COLOR_BODY:#7A7A7A;
+$COLOR_BODY_DISABLED: #979797;
+$COLOR_PLEDGE: $COLOR_PRIMARY;
+
+/**
+*   Icons / links
+*/
+$COLOR_BOOKMARK: #B1B1B1;
+$COLOR_ICON:#147A73;
+$COLOR_ICON_BG: #F3F8F8;
+$COLOR_ICON_DISABLED: #707070;
+$COLOR_ICON_BG_DISABLED: #F5F5F5;
+$COLOR_PROCESS: $COLOR_PRIMARY;
+
+/**
+*   Buttons
+*/
+$COLOR_BTN_PRIMARY: $COLOR_PRIMARY;
+$COLOR_BTN_PRIMARY_HOVER: $COLOR_PRIMARY_HOVER;
+$COLOR_BTN_DISABLED: #CBCBCB;
+$COLOR_BTN_TEXT: $COLOR_WHITE;
+
+/**
+*   Borders
+*/
+$COLOR_BORDER: $COLOR_BLACK; // opacity 15% 
+$COLOR_BORDER-LIGHT: #EAEAEA;
+$COLOR_BORDER_DIVIDER: #979797

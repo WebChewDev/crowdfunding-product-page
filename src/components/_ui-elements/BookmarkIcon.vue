@@ -1,0 +1,30 @@
+<template>
+  <svg
+    width="10"
+    height="18"
+    viewBox="0 0 10 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M0 0V18L5 12.9419L10 18V0H0Z"
+      :fill="setFill"
+    />
+  </svg>
+</template>
+
+<script>
+export default {
+  name: "BookmarkIcon",
+  props: {
+    color: String,
+  },
+  data() {
+    return {
+      setFill: this.color,
+    };
+  },
+};
+</script>

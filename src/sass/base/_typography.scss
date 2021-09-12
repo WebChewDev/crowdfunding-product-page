@@ -1,0 +1,110 @@
+/**
+ * Typography
+ * -----------------------------------------------------------------------------
+ * Styles for displaying content with some of the most commonly used HTML elements,
+ * including normalization, typography, images, tables, and more.
+ *
+ */
+@import '../config/typography';
+@import '../config/colors';
+@import '../config/mq';
+
+h1,
+.h1 {
+    font-family: $FONT_STACK;
+    font-size: 20px;
+    font-weight: $WEIGHT_BOLD;
+    line-height: 24px;
+    text-transform: capitalize;
+    color: $COLOR_BLACK;
+}
+
+h2,
+.h2 {
+    font-family: $FONT_STACK;
+    font-size: 18px;
+    font-weight: $WEIGHT_BOLD;
+    line-height: 22px;
+    color: $COLOR_BLACK;
+}
+
+h3,
+.h3 {
+    font-family: $FONT_STACK;
+    font-size: 14px;
+    font-weight: $WEIGHT_BOLD;
+    line-height: 17px;
+    color: $COLOR_BLACK;
+}
+
+p,
+.body {
+    font-family: $FONT_STACK;
+    font-weight: $WEIGHT_BOOK;
+    font-size: 14px;
+    line-height: 24px;
+    color: $COLOR_BODY;
+}
+
+.quantity--large {
+    font-weight: $WEIGHT_BOLD;
+    font-size: 32px;
+    line-height: 39px;
+    color: $WEIGHT_BLACK;
+}
+
+.quantity--small {
+    font-weight: $WEIGHT_BOLD;
+    font-size: 18px;
+    line-height: 22px;
+    // letter-spacing: -2px;
+    color: $WEIGHT_BLACK;
+}
+
+.stats-label {
+    font-weight: $WEIGHT_BOOK;
+    font-size: 15px;
+    line-height: 18px;
+    color: $COLOR_BODY;
+}
+
+.link-text {
+    font-weight: $WEIGHT_MEDIUM;
+    font-size: 14px;
+    line-height: 17px;
+    color: $COLOR_PRIMARY;
+
+    @include mq($from: desktop) {
+        font-size: 15px;
+        line-height: 18.5px;
+    }
+}
+
+.btn-text {
+    font-weight: $WEIGHT_BOLD;
+    font-size: 16px;
+    line-height: 20px;
+    color: $COLOR_BTN_TEXT;
+
+    @include mq($from: desktop) {
+        font-size: 15px;
+        line-height: 18px;
+    }
+}
+
+/**
+* Text alignment
+* ==================================
+*/
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
