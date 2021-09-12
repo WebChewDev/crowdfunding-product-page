@@ -1,6 +1,6 @@
 <template>
   <div class="pledge-statistics">
-    <div v-for="(item, index) in statistics" :key="index">
+    <div v-for="(item, index) in getStatistics" :key="index">
       <div class="pledge-statistics__value quantity--large">
         {{ item.value }}
       </div>
@@ -14,27 +14,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "PledgeStatistics",
-  computed: {},
-  data() {
-    return {
-      statistics: [
-        {
-          value: "$89,914",
-          label: "of $100,000 backed",
-        },
-        {
-          value: "5,007",
-          label: "total backers",
-        },
-        {
-          value: "56",
-          label: "days left",
-        },
-      ],
-    };
-  },
+  computed: mapGetters(["getStatistics"]),
 };
 </script>
 
