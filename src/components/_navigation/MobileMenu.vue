@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-fade">
-    <div class="modal" v-if="showMenu">
+    <div class="modal" v-show="showMenu">
       <div class="modal__backdrop">
         <div class="mobile-menu">
           <ul class="mobile-menu__list">

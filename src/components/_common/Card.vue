@@ -20,6 +20,7 @@
       v-if="enableBtn"
       :type="'btn btn__primary-small'"
       :innerText="'Select Reward'"
+      @click="log(index)"
     />
   </div>
 </template>
@@ -40,12 +41,9 @@ export default {
     url: String,
   },
   computed: mapGetters(["getOptions"]),
-  created() {
-    this.log();
-  },
   methods: {
-    log() {
-      console.log(mapGetters(["getOptions"]));
+    log(e) {
+      console.log(e);
     },
   },
 };
