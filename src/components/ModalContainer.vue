@@ -3,7 +3,7 @@
     <div v-if="show" class="modal">
       <div class="modal__backdrop">
         <div class="modal-container">
-          <Card :content="getOptions" :modal="show" />
+          <Card :content="allOptions" :modal="show" />
         </div>
       </div>
     </div>
@@ -12,12 +12,18 @@
 
 <script>
 import Card from "../components/_common/Card.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "ModalContainer",
   components: { Card },
-  computed: mapGetters(["getOptions"]),
+  computed: mapGetters(["allOptions"]),
+  methods: {
+    ...mapActions(["fetchOptions"]),
+  },
+  created() {
+    this.fetchOptions();
+  },
   data() {
     return {
       show: false,

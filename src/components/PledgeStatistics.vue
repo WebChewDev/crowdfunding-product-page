@@ -1,8 +1,8 @@
 <template>
   <div class="pledge-statistics">
-    <div v-for="(item, index) in getStatistics" :key="index">
+    <div v-for="(item, index) in allStatistics" :key="index">
       <div class="pledge-statistics__value quantity--large">
-        {{ item.value }}
+        ${{ item.value + 1 }}
       </div>
       <p class="pledge-statistics__label stats-label">{{ item.label }}</p>
 
@@ -10,15 +10,24 @@
     </div>
 
     progress bar
+    <button @click="log">click</button>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "PledgeStatistics",
-  computed: mapGetters(["getStatistics"]),
+  computed: {
+    ...mapGetters(["allStatistics"]),
+  },
+  methods: {
+    ...mapActions(["fetchStatistics"]),
+  },
+  created() {
+    console.log(this.fetchStatistics());
+  },
 };
 </script>
 

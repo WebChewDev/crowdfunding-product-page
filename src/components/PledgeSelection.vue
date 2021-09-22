@@ -13,24 +13,27 @@
       desk space below your computer to allow notepads, pens, and USB sticks to
       be stored under the stand.
     </p>
-    <Card :content="getOptions" :enableBtn="true" />
+    <Card :content="allOptions" :enableBtn="true" />
   </div>
 </template>
 
 <script>
 import Card from "./_common/Card.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "PledgeSelection",
   components: {
     Card,
   },
-  computed: mapGetters(["getOptions"]),
-  data() {
-    return {
-      show: false,
-    };
+  computed: {
+    ...mapGetters(["allOptions"]),
+  },
+  methods: {
+    ...mapActions(["fetchOptions"]),
+  },
+  created() {
+    this.fetchOptions();
   },
 };
 </script>
