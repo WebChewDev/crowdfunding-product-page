@@ -34,5 +34,18 @@
             "value": 56,
             "label": "days left"
         }
+    ],
+    "links": [{
+            "name": "Home",
+            "url": "/"
+        },
+        {
+            "name": "Discover",
+            "url": "/"
+        },
+        {
+            "name": "Contact us",
+            "url": "/"
+        }
     ]
 }]
