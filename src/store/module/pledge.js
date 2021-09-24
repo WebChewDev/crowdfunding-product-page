@@ -6,6 +6,9 @@ const state = {
   statistics: [],
   links: [],
   showMenu: false,
+  backedAmount: "",
+  totalBacked: "",
+  daysLeft: "",
 };
 
 const getters = {

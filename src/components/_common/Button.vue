@@ -1,6 +1,6 @@
 <template>
   <a :href="path">
-    <button :class="type">
+    <button @click="handler" class="btn" :class="type">
       <span class="btn-text">{{ innerText }}</span>
     </button>
   </a>
@@ -13,9 +13,7 @@ export default {
     type: { type: String },
     innerText: { type: String },
     path: { type: String },
-  },
-  data() {
-    return {};
+    handler: { type: Function },
   },
 };
 </script>
