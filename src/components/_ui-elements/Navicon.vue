@@ -1,5 +1,5 @@
 <template>
-  <button class="mobile-menu-icon" :class="isActive">
+  <button @click="handleClick" class="mobile-menu-icon">
     <span class="mobile-menu-icon__bar"></span>
     <span class="mobile-menu-icon__bar middle"></span>
     <span class="mobile-menu-icon__bar"></span>
@@ -9,22 +9,10 @@
 <script>
 export default {
   props: {
-    handlClick: Function,
+    handleClick: Function,
   },
 
-  data() {
-    return {
-      isOpen: false,
-      isActive: "",
-    };
-  },
-
-  methods: {
-    displayActive() {
-      this.isOpen = !this.Open;
-      this.isOpen ? (this.isActive = "active") : "";
-    },
-  },
+  created() {},
 };
 </script>
 
@@ -60,9 +48,5 @@ export default {
       display: none;
     }
   }
-}
-
-.active {
-  display: none;
 }
 </style>

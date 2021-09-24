@@ -25,8 +25,9 @@ export default {
   methods: {
     ...mapActions(["fetchStatistics"]),
   },
+
   created() {
-    console.log(this.fetchStatistics());
+    this.fetchStatistics();
   },
 };
 </script>

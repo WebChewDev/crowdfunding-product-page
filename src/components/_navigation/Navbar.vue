@@ -1,24 +1,19 @@
 <template>
-  <!-- <div class="container"> -->
   <nav class="navbar">
-    <brand-logo />
-
-    <!-- nav -->
+    <BrandLogo />
     <ul class="navbar__menu">
-      <li v-for="(nav, index) in navLinks" :key="index" class="navbar__item">
-        <a :href="nav.url" class="navbar__link"> {{ nav.name }}</a>
+      <li v-for="(link, index) in allLinks" :key="index" class="navbar__item">
+        <a :href="link.url" class="navbar__link"> {{ link.name }}</a>
       </li>
     </ul>
-
-    <!--nav-mobile -->
-    <navicon></navicon>
+    <Navicon :handleClick="openMobileMenu" />
   </nav>
-  <!-- </div> -->
 </template>
 
 <script>
 import BrandLogo from "../_ui-elements/BrandLogo.vue";
 import Navicon from "../_ui-elements/Navicon.vue";
+import { mapActions, mapGetters } from "vuex";
 
 export default {
   name: "Navbar",
@@ -27,20 +22,21 @@ export default {
   },
 
   components: {
-    "brand-logo": BrandLogo,
-    navicon: Navicon,
+    BrandLogo,
+    Navicon,
   },
 
-  data() {
-    return {
-      navLinks: this.links,
-    };
+  computed: {
+    ...mapGetters(["allLinks", "allOptions"]),
   },
 
   methods: {
-    getData() {
-      return console.log(this.navlinks);
-    },
+    ...mapActions(["openMobileMenu", "fetchLinks"]),
+  },
+
+  created() {
+    this.fetchLinks();
+    console.log("fetchlinks:", this.allLinks);
   },
 };
 </script>
@@ -62,8 +58,5 @@ export default {
       display: flex;
     }
   }
-
-  /* &__link {
-  }  */
 }
 </style>

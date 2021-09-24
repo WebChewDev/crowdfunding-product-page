@@ -5,7 +5,7 @@
     <PledgeSelection />
     <ModalContainer />
     <ModalSuccess />
-    <MobileMenu :links="navLinks" />
+    <MobileMenu v-show="showMenu" />
   </div>
 </template>
 
@@ -16,6 +16,8 @@ import PledgeSelection from "../components/PledgeSelection.vue";
 import ModalContainer from "../components/ModalContainer.vue";
 import ModalSuccess from "./ModalSuccess.vue";
 import MobileMenu from "../components/_navigation/MobileMenu.vue";
+
+import { mapState } from "vuex";
 
 export default {
   name: "PledgeContainer",
@@ -28,15 +30,13 @@ export default {
     MobileMenu,
   },
 
-  data() {
-    return {
-      navLinks: [
-        { name: "Home", url: "/" },
-        { name: "Discover", url: "/" },
-        { name: "Contact us", url: "/" },
-      ],
-    };
+  computed: {
+    ...mapState({
+      showMenu: (state) => state.pledge.showMenu,
+    }),
   },
+
+  created() {},
 };
 </script>
 

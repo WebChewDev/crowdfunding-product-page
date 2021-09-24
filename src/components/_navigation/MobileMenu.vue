@@ -1,11 +1,11 @@
 <template>
   <transition name="slide-fade">
-    <div class="modal" v-show="showMenu">
+    <div class="modal">
       <div class="modal__backdrop">
         <div class="mobile-menu">
           <ul class="mobile-menu__list">
             <li
-              v-for="(link, index) in navLinks"
+              v-for="(link, index) in allLinks"
               :key="index"
               class="mobile-menu__item"
             >
@@ -21,15 +21,22 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   props: {
     links: { type: Array },
   },
-  data() {
-    return {
-      navLinks: this.links,
-      showMenu: false,
-    };
+  computed: {
+    ...mapGetters(["allLinks"]),
+  },
+
+  methods: {
+    ...mapActions(["fetchLinks"]),
+  },
+
+  created() {
+    this.fetchLinks();
   },
 };
 </script>
