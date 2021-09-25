@@ -1,11 +1,11 @@
 import content from "../../api/content.json";
-// import axios from "axios";
 
 const state = {
   options: [],
   statistics: [],
   links: [],
   showMenu: false,
+  showModal: false,
   backedAmount: "",
   totalBacked: "",
   daysLeft: "",
@@ -36,6 +36,10 @@ const actions = {
   openMobileMenu({ commit }) {
     commit("clickMenu");
   },
+
+  openModal({ commit }) {
+    commit("clickModal");
+  },
 };
 
 const mutations = {
@@ -53,6 +57,10 @@ const mutations = {
 
   clickMenu(state) {
     state.showMenu = !state.showMenu;
+  },
+
+  clickModal(state) {
+    state.showModal = !state.showModal;
   },
 };
 
