@@ -1,9 +1,9 @@
 <template>
   <transition>
-    <div v-if="show" class="modal">
+    <div v-if="showModal" class="modal">
       <div class="modal__backdrop">
         <div class="modal-container">
-          <Card :content="allOptions" :modal="show" />
+          <Card :content="allOptions" />
         </div>
       </div>
     </div>
@@ -12,22 +12,22 @@
 
 <script>
 import Card from "../components/_common/Card.vue";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, mapState } from "vuex";
 
 export default {
   name: "ModalContainer",
   components: { Card },
-  computed: mapGetters(["allOptions"]),
+  computed: {
+    ...mapGetters(["allOptions"]),
+    ...mapState({
+      showModal: (state) => state.pledge.showModal,
+    }),
+  },
   methods: {
     ...mapActions(["fetchOptions"]),
   },
   created() {
     this.fetchOptions();
-  },
-  data() {
-    return {
-      show: false,
-    };
   },
 };
 </script>
