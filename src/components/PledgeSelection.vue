@@ -13,7 +13,7 @@
       desk space below your computer to allow notepads, pens, and USB sticks to
       be stored under the stand.
     </p>
-    <Card :content="allOptions" :enableBtn="true" />
+    <Card :content="allOptions" :enableBtn="true"  />
   </div>
 </template>
 
@@ -30,7 +30,7 @@ export default {
     ...mapGetters(["allOptions"]),
   },
   methods: {
-    ...mapActions(["fetchOptions"]),
+    ...mapActions(["fetchOptions", "openModal"]),
   },
   created() {
     this.fetchOptions();

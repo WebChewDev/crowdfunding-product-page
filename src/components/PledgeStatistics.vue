@@ -2,7 +2,7 @@
   <div class="pledge-statistics">
     <div v-for="(item, index) in allStatistics" :key="index">
       <div class="pledge-statistics__value quantity--large">
-        ${{ item.value + 1 }}
+        {{ getCurrency(index, item.value) }}
       </div>
       <p class="pledge-statistics__label stats-label">{{ item.label }}</p>
 
@@ -13,9 +13,10 @@
     <button @click="log">click</button>
   </div>
 </template>
-
+ß
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { currency } from "../helpers/currency";
 
 export default {
   name: "PledgeStatistics",
@@ -24,6 +25,11 @@ export default {
   },
   methods: {
     ...mapActions(["fetchStatistics"]),
+    getCurrency: (index, value) => {
+      const pound = index <= 0 ? "£" : "";
+
+      return currency(value, pound, 0);
+    },
   },
 
   created() {
