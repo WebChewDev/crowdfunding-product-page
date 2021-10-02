@@ -1,7 +1,7 @@
 <template>
   <transition>
     <div v-if="showModal" class="modal">
-      <div class="modal__backdrop">
+      <div @click="openModal" class="modal__backdrop">
         <div class="modal-container">
           <Card :content="allOptions" />
         </div>
@@ -24,7 +24,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(["fetchOptions"]),
+    ...mapActions(["fetchOptions", "openModal"]),
   },
   created() {
     this.fetchOptions();
