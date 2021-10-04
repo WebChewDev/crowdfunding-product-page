@@ -1,13 +1,10 @@
 <template>
-  <transition>
-    <div v-if="showModal" class="modal">
-      <div @click="openModal" class="modal__backdrop">
-        <div class="modal-container">
-          <Card :content="allOptions" />
-        </div>
-      </div>
+  <div v-if="showModal" class="modal">
+    <div @click="openModal" class="modal__backdrop"></div>
+    <div class="modal__container">
+      <Card class="scroll" :content="allOptions" />
     </div>
-  </transition>
+  </div>
 </template>
 
 <script>
@@ -26,6 +23,13 @@ export default {
   methods: {
     ...mapActions(["fetchOptions", "openModal"]),
   },
+  watch: {
+    showModal() {
+      this.showModal
+        ? (document.body.style = "overflow:hidden")
+        : (document.body.style = "");
+    },
+  },
   created() {
     this.fetchOptions();
   },
@@ -33,13 +37,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.modal-container {
-  position: relative;
-  width: 327px;
-  margin: 50px auto;
-  border-radius: 8px;
-  background-color: $COLOR_BG_CARD;
-  border: 1px solid $COLOR_BORDER-LIGHT;
-  padding: 31px 24px;
+.modal {
+  &__modal__backdrop {
+    overflow-y: initial;
+  }
+
+  &__container {
+    position: relative;
+    width: 327px;
+    margin: 50px auto;
+    border-radius: 8px;
+    background-color: $COLOR_BG_CARD;
+    border: 1px solid $COLOR_BORDER-LIGHT;
+    padding: 31px 24px;
+    overflow-y: scroll;
+    z-index: 100;
+  }
 }
 </style>

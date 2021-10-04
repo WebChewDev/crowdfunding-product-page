@@ -53,6 +53,7 @@ export default {
 
   p {
     margin-bottom: 38px;
+    text-align: left;
   }
 
   p:last-child {

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   props: {
@@ -29,10 +29,21 @@ export default {
   },
   computed: {
     ...mapGetters(["allLinks"]),
+    ...mapState({
+      showMenu: (state) => state.pledge.showMenu,
+    }),
   },
 
   methods: {
     ...mapActions(["fetchLinks", "openMobileMenu"]),
+  },
+
+  watch: {
+    showMenu() {
+      this.showMenu
+        ? (document.body.style = "overflow:hidden")
+        : (document.body.style = "");
+    },
   },
 
   created() {
