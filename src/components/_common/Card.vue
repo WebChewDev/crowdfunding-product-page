@@ -71,6 +71,7 @@ export default {
 
   p {
     margin-bottom: 24px;
+    text-align: left;
   }
 
   a {
