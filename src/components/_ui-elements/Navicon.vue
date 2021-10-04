@@ -1,52 +1,59 @@
 <template>
-  <button @click="handleClick" class="mobile-menu-icon">
-    <span class="mobile-menu-icon__bar"></span>
-    <span class="mobile-menu-icon__bar middle"></span>
-    <span class="mobile-menu-icon__bar"></span>
+  <button
+    @click="handleClick"
+    :class="{ change: showMenu }"
+    class="mobile-menu-icon"
+  >
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
   </button>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   props: {
     handleClick: Function,
   },
-
-  created() {},
+  computed: {
+    ...mapState({
+      showMenu: (state) => state.pledge.showMenu,
+    }),
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .mobile-menu-icon {
-  width: 16px;
+  width: 40px;
   height: 15px;
 
   @include mq($from: tablet) {
     display: none;
   }
+}
 
-  &__bar {
-    display: block;
-    width: 16px;
-    height: 3px;
-    margin: 3px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: white;
-  }
+.bar1,
+.bar2,
+.bar3 {
+  width: 16px;
+  height: 3px;
+  background-color: #fff;
+  margin: 3px 0;
+  transition: 0.4s;
+}
 
-  &:focus {
-    span:first-child {
-      transform-origin: 4px 5px;
-      transform: rotate(45deg);
-    }
-    span:last-child {
-      transform-origin: 0 10px;
-      transform: rotate(-45deg);
-    }
-    .middle {
-      display: none;
-    }
-  }
+.change .bar1 {
+  transform: rotate(-45deg) translate(-2px, 2px);
+}
+
+.change .bar2 {
+  opacity: 0;
+}
+
+.change .bar3 {
+  transform: rotate(45deg) translate(-7px, -6px);
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <transition name="slide-fade">
     <div class="modal">
-      <div class="modal__backdrop">
+      <div @click="openMobileMenu" class="modal__backdrop">
         <div class="mobile-menu">
           <ul class="mobile-menu__list">
             <li
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
 
 export default {
   props: {
@@ -29,10 +29,21 @@ export default {
   },
   computed: {
     ...mapGetters(["allLinks"]),
+    ...mapState({
+      showMenu: (state) => state.pledge.showMenu,
+    }),
   },
 
   methods: {
-    ...mapActions(["fetchLinks"]),
+    ...mapActions(["fetchLinks", "openMobileMenu"]),
+  },
+
+  watch: {
+    showMenu() {
+      this.showMenu
+        ? (document.body.style = "overflow:hidden")
+        : (document.body.style = "");
+    },
   },
 
   created() {
@@ -45,7 +56,7 @@ export default {
 .mobile-menu {
   min-height: 70px;
   width: 327px;
-  margin: 20px auto;
+  margin: 90px auto;
   background-color: white;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease-in-out;

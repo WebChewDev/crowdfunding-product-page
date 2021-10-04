@@ -20,6 +20,7 @@
       v-if="enableBtn"
       :type="'btn btn__primary-small'"
       :innerText="'Select Reward'"
+      :handler="openModal"
       @click="log(index)"
     />
   </div>
@@ -27,7 +28,7 @@
 
 <script>
 import Button from "./Button.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Card",
@@ -37,7 +38,7 @@ export default {
   props: {
     content: Array,
     enableBtn: Boolean,
-    modal: Boolean,
+    modal: Function,
     url: String,
   },
   computed: mapGetters(["getOptions"]),
@@ -45,6 +46,7 @@ export default {
     log(e) {
       console.log(e);
     },
+    ...mapActions(["openModal"]),
   },
 };
 </script>
@@ -69,6 +71,7 @@ export default {
 
   p {
     margin-bottom: 24px;
+    text-align: left;
   }
 
   a {
