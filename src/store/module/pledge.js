@@ -6,15 +6,18 @@ const state = {
   links: [],
   showMenu: false,
   showModal: false,
-  backedAmount: "",
-  totalBacked: "",
-  daysLeft: "",
+  progressBar: "",
 };
 
 const getters = {
   allOptions: state => state.options,
   allStatistics: state => state.statistics,
   allLinks: state => state.links,
+  getProgress: state => {
+    const total = 100000;
+
+    return (state.statistics[0].value * 100) / total;
+  },
 };
 
 const actions = {
@@ -70,5 +73,3 @@ export default {
   actions,
   mutations,
 };
-
-console.log("State", state);
