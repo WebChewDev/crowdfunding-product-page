@@ -9,19 +9,22 @@
       <div v-if="index > 1 ? false : true" class="divider"></div>
     </div>
 
-    progress bar
-    <button @click="log">click</button>
+    <ProgressBar :progress="getProgress" />
   </div>
 </template>
-ß
+
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { currency } from "../helpers/currency";
+import ProgressBar from "./_common/ProgressBar.vue";
 
 export default {
   name: "PledgeStatistics",
+  components: {
+    ProgressBar,
+  },
   computed: {
-    ...mapGetters(["allStatistics"]),
+    ...mapGetters(["allStatistics", "getProgress"]),
   },
   methods: {
     ...mapActions(["fetchStatistics"]),
@@ -34,6 +37,7 @@ export default {
 
   created() {
     this.fetchStatistics();
+    console.log("allStatistics:", this.allStatistics[0].value);
   },
 };
 </script>
