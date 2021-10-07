@@ -3,7 +3,7 @@
     <PledgeHeader />
     <PledgeStatistics />
     <PledgeSelection />
-    <ModalContainer />
+    <ModalSelection />
     <ModalSuccess />
     <MobileMenu v-show="showMenu" />
   </div>
@@ -13,7 +13,7 @@
 import PledgeHeader from "../components/PledgeHeader.vue";
 import PledgeStatistics from "../components/PledgeStatistics.vue";
 import PledgeSelection from "../components/PledgeSelection.vue";
-import ModalContainer from "../components/ModalContainer.vue";
+import ModalSelection from "./ModalSelection.vue";
 import ModalSuccess from "./ModalSuccess.vue";
 import MobileMenu from "../components/_navigation/MobileMenu.vue";
 
@@ -25,7 +25,7 @@ export default {
     PledgeHeader,
     PledgeStatistics,
     PledgeSelection,
-    ModalContainer,
+    ModalSelection,
     ModalSuccess,
     MobileMenu,
   },
