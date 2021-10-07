@@ -2,13 +2,18 @@
   <div v-if="showModal" class="modal">
     <div @click="openModal" class="modal__backdrop"></div>
     <div class="modal__container">
-      <Card class="scroll" :content="allOptions" />
+      <Card
+        class="scroll"
+        :content="allOptions"
+        :isModal="true"
+        :enableForm="false"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Card from "../components/_common/Card.vue";
+import Card from "./_common/Card.vue";
 import { mapGetters, mapActions, mapState } from "vuex";
 
 export default {

@@ -36,7 +36,6 @@ export default {
 
   created() {
     this.fetchLinks();
-    console.log("fetchlinks:", this.allLinks);
   },
 };
 </script>

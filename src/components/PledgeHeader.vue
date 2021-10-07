@@ -11,7 +11,7 @@
     </div>
     <div class="pledge-header__button-group">
       <Button
-        type="btn btn__primary"
+        type="primary"
         innerText="Back this project"
         url="https://www.youtube.com/watch?v=ElRTFYtlW84"
       />

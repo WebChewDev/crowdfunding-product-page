@@ -37,7 +37,6 @@ export default {
 
   created() {
     this.fetchStatistics();
-    console.log("allStatistics:", this.allStatistics[0].value);
   },
 };
 </script>

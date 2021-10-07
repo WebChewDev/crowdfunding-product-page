@@ -4,7 +4,7 @@
     class="bookmark"
     :class="this.isDisabled ? 'active' : ''"
   >
-    <bookmark-icon :color="iconColor" />
+    <BookmarkIcon :color="iconColor" />
   </div>
 </template>
 
@@ -13,7 +13,7 @@ import BookmarkIcon from "../_ui-elements/BookmarkIcon.vue";
 export default {
   name: "Bookmark",
   components: {
-    "bookmark-icon": BookmarkIcon,
+    BookmarkIcon,
   },
   data() {
     return {
