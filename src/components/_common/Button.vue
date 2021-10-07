@@ -21,25 +21,29 @@ export default {
 <style lang="scss" scoped>
 .btn {
   height: 56px;
-  width: 214px;
+  min-width: 214px;
   text-align: center;
   text-decoration: none;
   border-radius: 33.5px;
+}
 
-  &__primary {
-    background-color: $COLOR_PRIMARY;
-    color: $COLOR_BTN_TEXT;
-  }
+.btn-medium {
+  height: 48px;
+  min-width: 152px;
+}
 
-  &__primary-small {
-    background-color: $COLOR_PRIMARY;
-    color: $COLOR_BTN_TEXT;
-    width: 152px;
-  }
+.btn-small {
+  height: 48px;
+  min-width: 115px;
+}
 
-  &__red {
-    background-color: red;
-    color: aqua;
-  }
+.primary {
+  background-color: $COLOR_PRIMARY;
+  color: $COLOR_BTN_TEXT;
+}
+
+.disabled {
+  background-color: $COLOR_BTN_DISABLED;
+  color: $COLOR_BTN_TEXT;
 }
 </style>
